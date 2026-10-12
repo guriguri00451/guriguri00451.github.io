@@ -20,10 +20,18 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # <user>.github.io リポジトリなら空、プロジェクトページなら /<repo>
+      - name: Compute base path
+        id: bp
+        run: |
+          repo="${{ github.event.repository.name }}"
+          case "$repo" in
+            *.github.io) echo "base=" >> "$GITHUB_OUTPUT" ;;
+            *) echo "base=/$repo" >> "$GITHUB_OUTPUT" ;;
+          esac
       - run: npm run build
         env:
-          # <user>.github.io リポジトリなら空、プロジェクトページなら /<repo>
-          NEXT_PUBLIC_BASE_PATH: ${{ endsWith(github.event.repository.name, '.github.io') && '' || format('/{0}', github.event.repository.name) }}
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.bp.outputs.base }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out
