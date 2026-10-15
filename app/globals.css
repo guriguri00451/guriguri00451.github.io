@@ -114,7 +114,11 @@ ul {
   font-size: 0.9rem;
 }
 /* ブログ本文（marked の出力）。pre は改行保持しつつ折り返す */
+article {
+  line-height: 1.9;
+}
 article pre {
+  line-height: 1.6;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   padding: 0.75rem;
