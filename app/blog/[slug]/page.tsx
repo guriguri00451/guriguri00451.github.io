@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { getPost, getPosts } from "@/lib/posts";
 
-export const dynamicParams = false;
-
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
 }
