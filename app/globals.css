@@ -113,3 +113,37 @@ ul {
   list-style: none;
   font-size: 0.9rem;
 }
+/* ブログ本文（marked の出力）。pre は改行保持しつつ折り返す */
+article pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  padding: 0.75rem;
+  background: #f4f4f4;
+  border-radius: 6px;
+}
+article blockquote {
+  margin-left: 0;
+  padding-left: 0.75rem;
+  border-left: 3px solid #ccc;
+  color: #555;
+}
+article ul,
+article ol {
+  padding-left: 1.25rem;
+  list-style-position: outside;
+}
+article img {
+  max-width: 100%;
+  height: auto;
+}
+article a {
+  overflow-wrap: anywhere;
+}
+article table {
+  border-collapse: collapse;
+}
+article th,
+article td {
+  border: 1px solid #ccc;
+  padding: 0.25rem 0.5rem;
+}
