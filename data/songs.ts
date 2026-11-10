@@ -8,7 +8,7 @@ export type Song = {
 
 export const songs: Song[] = [
   {
-    id: "7Mt2nP2EmZxlyGTZWaxnDg?si=ca56c6a16ac24301",
+    id: "6NbZalytDfcR5HiuGV1Bii?si=1a0251ba5c5c41bd",
     note: "最近のお気に入り",
   },
 ];
