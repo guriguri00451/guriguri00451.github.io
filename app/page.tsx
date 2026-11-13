@@ -15,10 +15,12 @@ export default function Home() {
     <main>
       <header>
         <h1>{profile.name}</h1>
-        <p>{profile.role}</p>
+        {/* /games/ は別サイト(別リポジトリ)なので next/link ではなく通常の<a>で遷移する */}
+        <p><a href={profile.gamesUrl}>Games</a></p>
       </header>
       <section id="about">
         <h2>About</h2>
+        <p>{profile.role}</p>
         <p>{profile.bio}</p>
       </section>
       <section id="works">

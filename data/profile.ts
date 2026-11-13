@@ -11,6 +11,7 @@ export const profile: {
   name: string;
   role: string;
   bio: string;
+  gamesUrl: string;
   skillCategories: { label: string; items: Skill[] }[];
   hobbies: string[];
   links: { label: string; url: string }[];
@@ -18,6 +19,7 @@ export const profile: {
   name: "t.そーま",
   role: "ゲームエンジニア",
   bio: "福岡大学 商学部 / 福大ピアプロ / じょぎ",
+  gamesUrl: "https://guriguri00451.github.io/games/",
   skillCategories: [
     {
       label: "ゲームエンジン",
