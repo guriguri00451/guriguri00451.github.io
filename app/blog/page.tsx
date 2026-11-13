@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { getPosts } from "@/lib/posts";
 
-export const metadata = { title: "Blog" };
+export const metadata = {
+  title: "Blog",
+  description: "t.そーまのブログ記事の一覧です。",
+  alternates: { canonical: "/blog" },
+};
 
 export default function Blog() {
   return (
