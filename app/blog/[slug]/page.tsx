@@ -1,8 +1,23 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getPost, getPosts } from "@/lib/posts";
 
 export function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPost(slug);
+  return {
+    title: post.title,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: { type: "article", title: post.title, url: `/blog/${slug}`, publishedTime: post.date || undefined },
+  };
 }
 
 export default async function Post({ params }: { params: Promise<{ slug: string }> }) {

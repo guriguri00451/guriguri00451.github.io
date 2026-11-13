@@ -6,6 +6,7 @@ import { songs } from "@/data/songs";
 import { WorkList } from "@/components/WorkList";
 import { SongList } from "@/components/SongList";
 import { getPosts } from "@/lib/posts";
+import { siteUrl } from "@/lib/site";
 
 // next/image は basePath を自動付与しないため、公開パスは自分で前置きする
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -13,6 +14,19 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: profile.name,
+            jobTitle: profile.role,
+            url: siteUrl,
+            sameAs: ["https://x.com/guriguri00451"],
+          }),
+        }}
+      />
       <header>
         <h1>{profile.name}</h1>
         {/* /games/ は別サイト(別リポジトリ)なので next/link ではなく通常の<a>で遷移する */}
